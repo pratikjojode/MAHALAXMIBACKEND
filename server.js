@@ -25,14 +25,6 @@ app.use("/api/v1/admin", require("./routes/adminRoutes"));
 app.use("/api/v1/feedback", require("./routes/feedBackRoute"));
 app.use("/uploads", express.static("uploads"));
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "./client/build")));
-
-// React app route - Wildcard route should be last
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
 // CORS configuration
 app.use(
   cors({
